@@ -29,11 +29,13 @@ git clone https://github.com/alisrour97/Sensitivity_PX4_Experiments.git --recurs
 ### 3) Clone PX4 firmware
 Clone the firmware repository, in the same folder where you cloned this repository
 ```
-git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+git clone https://github.com/alisrour97/PX4-Autopilot.git --recursive
 ```
 
+A forked repo of PX4 which contains another fork for **gazebo-classic** modules which was modified
+
 ### 4) Clone the uXRCE-DDS client 
-This is the client needed to communicate with PX4 from ROS2.
+This is the client needed to communicate with PX4 from ROS2. Clone version **V2.4.0**
 ```
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
 cd Micro-XRCE-DDS-Agent
@@ -54,6 +56,10 @@ To close the container just press ```CTRL-d```. The container will be closed but
 docker container rm px4_ros2
 ```
 and repeat the step (5) to create it again.
+
+### 6) Docker image
+
+Image can be found on the [docker Hub](https://hub.docker.com/r/px4io/px4-dev-ros2-foxy)
 
 ## Run the simulation
 Now that everything is set up, you need to compile PX4 in order to run the simulation, start the uXRCE-DDS client and then start the controller in ROS2.

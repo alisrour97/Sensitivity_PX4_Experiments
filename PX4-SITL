@@ -1,0 +1,16 @@
+A. Changes to do for simulating different modules in gazebo-classic:
+
+1. Modify (.gitmodules): alisrour97/PX4-SITL_gazebo-classic.git
+
+2. In (‎ROMFS/px4fmu_common/init.d-posix/airframes/)
+	*Add File (1080_gazebo-classic_iris_delta_p1) related only to parameters which are constants and nominal
+	*Edit CMakeLists as (ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt) to add inside [px4_add_romfs_files((1080_gazebo-classic_iris_delta_p1))]
+	
+3. In (Tools/simulation/gazebo-classic/sitl_gazebo-classic/models)
+	*Add folder (iris_delta_p1) including: ($name).sdf.jinja, /meshes/iris.stl , /meshes/iris_prop_ccw.dae, /meshes/iris_prop_cw.dae, model.config
+	
+4. Edit cmake (src/modules/simulation/simulator_mavlink/sitl_targets_gazebo-classic.cmake)
+	*set(models      .. .. (iris_delta_p1))
+	
+5. In (Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds)
+	*Add folder jet_ski.world to be seen by SITL_run.sh
